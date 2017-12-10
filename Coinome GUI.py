@@ -12,6 +12,8 @@ import tkMessageBox
 import numpy as np
 import winsound
 import webbrowser
+import socket
+import urllib
 
 top = tk.Tk()
 top.title("Coinome Bitcoin Rate Notifier")
@@ -119,17 +121,46 @@ def startMonitering():
     f = open('bitcoin_rate.txt', 'a')
     f.write(',' + str(rate))
     f.close()
-
+'''
+def is_connected():
+    try:
+        # connect to the host -- tells us if the host is actually
+        # reachable
+        socket.create_connection(("www.google.com", 80))
+        return True
+    except OSError:
+        tkMessageBox.showinfo("Dammmm...", "No Internet Connection :P !!!")
+        pass
+    return False
+'''
 def monitor():
 
-    sleepTimer = 60000
-    userInterval = interval.get()
-    if len(userInterval) == 0:
-        sleepTimer = 60000*5
+    internetStatus = 0
+
+
+    try:
+        stri = "https://www.google.co.in"
+        data = urllib.urlopen(stri)
+        internetStatus = 1
+    except :
+        #tkMessageBox.showinfo("Dammmm...", "No Internet Connection :P !!!")
+        internetStatus = 0
+        print "not connected"
+
+
+    if internetStatus == 1 :
+        sleepTimer = 60000
+        userInterval = interval.get()
+
+        if len(userInterval) == 0:
+            sleepTimer = 60000*5
+        else:
+            sleepTimer = sleepTimer * int(userInterval)
+        startMonitering()
+        top.after(sleepTimer,monitor)
     else:
-        sleepTimer = sleepTimer * int(userInterval)
-    startMonitering()
-    top.after(sleepTimer,monitor)
+        print("damm")
+        tkMessageBox.showinfo("Dammmm...","No Internet Connection :P !!!")
 
 
 startBtn = tk.Button(top, command=monitor)
