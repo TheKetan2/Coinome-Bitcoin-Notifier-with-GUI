@@ -46,13 +46,13 @@ sellNotify.grid(row=1, column=2, columnspan=1)
 
 price = tk.Label(top, text="Loading...")
 price.grid(row=3, column=0)
-sell = tk.Entry(top, bd=2)
-sell.insert(0, "Enter Sell Price")
-sell.grid(row=3, column=1, pady=5)
-
 buy = tk.Entry(top, bd=2)
 buy.insert(0, "Enter Buy Price")
-buy.grid(row=3, column=2, pady=5)
+buy.grid(row=3, column=1, pady=5)
+
+sell = tk.Entry(top, bd=2)
+sell.insert(0, "Enter Sell Price")
+sell.grid(row=3, column=2, pady=5)
 
 def plotGraph():
     f = open('bitcoin_rate.txt','r')
