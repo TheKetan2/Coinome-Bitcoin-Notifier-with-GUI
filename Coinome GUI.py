@@ -1,5 +1,5 @@
 # Coinome Bitcoin Price Checker
-# Author : Ketan D. Ramteke
+# Author : Ketan D. Ramteke k2
 # github.com/theketan2
 
 import requests
