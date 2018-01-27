@@ -1,4 +1,4 @@
-# Coinome(Will not work) Bitcoin Price Checker
+# Coinome Bitcoin Price Checker
 # Author : Ketan D. Ramteke
 # github.com/theketan2
 
