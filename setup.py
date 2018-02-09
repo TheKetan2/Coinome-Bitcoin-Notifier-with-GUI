@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='coinome_price_alert',
+    name='coinome_price_alertt',
     version='1.0',
     packages=[''],
     url='github.com/TheKetan2',
