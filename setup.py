@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='coinomem_price_alemrmt',
+    name='coinomem_price_alecmrmt',
     version='1.0',
     packages=[''],
     url='github.com/TheKetan2',
